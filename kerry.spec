@@ -1,17 +1,21 @@
 Summary:	Desktop search tool
+Summary(pl):	Graficzne narzêdzie do wyszukiwania
 Name:		kerry
 Version:	0.07
 Release:	4
 License:	GPL
-Group:		Applications
+Group:		X11/Applications
 Source0:	%{name}-%{version}.tar.bz2
 # Source0-md5:	f90997ff0e42f7c5a18fe33d8ccc56fb
-BuildRequires:	kdelibs-devel
 BuildRequires:	beagle-devel
+BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A desktop search tool integrated with Beagle and KDE.
+
+%description -l pl
+Graficzne narzêdzie do wyszukiwania zintegrowane z Beagle i KDE.
 
 %prep
 %setup -q -n %{name}
@@ -24,10 +28,16 @@ A desktop search tool integrated with Beagle and KDE.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_desktopdir}
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
 mv $RPM_BUILD_ROOT{%{_datadir}/applnk/kerry.desktop,%{_desktopdir}}
 
 %find_lang %{name} --with-kde
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -40,6 +50,3 @@ mv $RPM_BUILD_ROOT{%{_datadir}/applnk/kerry.desktop,%{_desktopdir}}
 %{_desktopdir}/kerry.desktop
 %{_datadir}/autostart/beagled.desktop
 %{_datadir}/autostart/kerry.autostart.desktop
-
-%clean
-rm -rf $RPM_BUILD_ROOT
