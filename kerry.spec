@@ -13,6 +13,7 @@ Source0:	http://developer.kde.org/~binner/kerry/%{name}-%{version}.tar.bz2
 # Source0-md5:	fedb001d73ad80d90ecb850dab19a709
 BuildRequires:	beagle-devel
 BuildRequires:	kdelibs-devel
+Requires:	beagle
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
