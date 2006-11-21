@@ -1,16 +1,14 @@
-#
-# TODO:
-#	- cleanup locale files
-#
+
 Summary:	Desktop search tool
 Summary(pl):	Graficzne narzêdzie do wyszukiwania
 Name:		kerry
-Version:	0.1.1
-Release:	0.9
+Version:	0.2
+Release:	0.1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://developer.kde.org/~binner/kerry/%{name}-%{version}.tar.bz2
-# Source0-md5:	fedb001d73ad80d90ecb850dab19a709
+# Source0-md5:	54208e7220b07e3f4819540043711f68
+Patch0:		kde-ac260-lt.patch
 BuildRequires:	beagle-devel
 BuildRequires:	kdelibs-devel
 Requires:	beagle
@@ -24,6 +22,7 @@ Graficzne narzêdzie do wyszukiwania zintegrowane z Beagle i KDE.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__make} -f admin/Makefile.common
@@ -37,19 +36,26 @@ install -d $RPM_BUILD_ROOT%{_desktopdir}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang %{name}-%{version} --with-kde
+%find_lang %{name}
+%find_lang kcmbeagle
+
+cat kcmbeagle.lang >> %{name}.lang
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}-%{version}.lang
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kerry
+%{_datadir}/applnk/.hidden/*.desktop
+%{_datadir}/apps/kerry
+%attr(755,root,root) %{_libdir}/kde3/kcm_beagle.so
+%{_libdir}/kde3/kcm_beagle.la
 %attr(755,root,root) %{_libdir}/kde3/kerry.so
 %{_libdir}/kde3/kerry.la
 %attr(755,root,root) %{_libdir}/libkdeinit_kerry.so*
 %{_libdir}/libkdeinit_kerry.la
-%{_iconsdir}/*/*/*/kerry.*
-%{_desktopdir}/kde/kerry.desktop
+%{_iconsdir}/*/*/*/kerry*
+%{_desktopdir}/kde/*
 %{_datadir}/autostart/beagled.desktop
 %{_datadir}/autostart/kerry.autostart.desktop
