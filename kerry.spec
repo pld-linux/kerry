@@ -2,12 +2,12 @@
 Summary:	Desktop search tool
 Summary(pl):	Graficzne narzêdzie do wyszukiwania
 Name:		kerry
-Version:	0.2
+Version:	0.2.1
 Release:	0.1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://developer.kde.org/~binner/kerry/%{name}-%{version}.tar.bz2
-# Source0-md5:	54208e7220b07e3f4819540043711f68
+# Source0-md5:	c5885de1b18c9c7cf944d8845eb9c64c
 Patch0:		kde-ac260-lt.patch
 BuildRequires:	beagle-devel
 BuildRequires:	kdelibs-devel
