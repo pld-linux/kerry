@@ -1,6 +1,6 @@
 
 Summary:	Desktop search tool
-Summary(pl):	Graficzne narzêdzie do wyszukiwania
+Summary(pl.UTF-8):   Graficzne narzÄ™dzie do wyszukiwania
 Name:		kerry
 Version:	0.2.1
 Release:	0.1
@@ -17,8 +17,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 A desktop search tool integrated with Beagle and KDE.
 
-%description -l pl
-Graficzne narzêdzie do wyszukiwania zintegrowane z Beagle i KDE.
+%description -l pl.UTF-8
+Graficzne narzÄ™dzie do wyszukiwania zintegrowane z Beagle i KDE.
 
 %prep
 %setup -q
