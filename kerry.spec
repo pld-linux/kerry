@@ -1,6 +1,6 @@
 
 Summary:	Desktop search tool
-Summary(pl.UTF-8):   Graficzne narzędzie do wyszukiwania
+Summary(pl.UTF-8):	Graficzne narzędzie do wyszukiwania
 Name:		kerry
 Version:	0.2.1
 Release:	0.1
