@@ -10,6 +10,7 @@ Source0:	http://developer.kde.org/~binner/kerry/%{name}-%{version}.tar.bz2
 # Source0-md5:	c5885de1b18c9c7cf944d8845eb9c64c
 Patch0:		kde-ac260-lt.patch
 BuildRequires:	beagle-devel
+BuildRequires:	kdebase-devel
 BuildRequires:	kdelibs-devel
 Requires:	beagle
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
